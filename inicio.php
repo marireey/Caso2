@@ -26,29 +26,28 @@
             setcookie("password", "abc", time()-150);
             header("Location: login.php");
         }
-    } else if($_REQUEST["user"] == $usuario && $_REQUEST["password"] == $password) {
-        echo "Sesion iniciada por login";
-        if(isset($_REQUEST["recordar"])) {
-            $_SESSION["user"] = $_REQUEST["user"];
-            $_SESSION["password"] = $_REQUEST["password"];
-            setcookie("user", $_SESSION["user"], time()+150);
-            setcookie("password", $_SESSION["password"], time()+150);
-        }
     } else if(isset($_REQUEST["user"]) && isset($_REQUEST["password"])){
-         if ($_REQUEST["user"] != $usuario && $_REQUEST["password"] != $password) {
-        $_SESSION["error"] = "Usuario y contraseña inválidos";
-        header('Location: error.php');
+        if($_REQUEST["user"] == $usuario && $_REQUEST["password"] == $password) {
+            echo "Sesion iniciada por login";
+            if(isset($_REQUEST["recordar"])) {
+                $_SESSION["user"] = $_REQUEST["user"];
+                $_SESSION["password"] = $_REQUEST["password"];
+                setcookie("user", $_SESSION["user"], time()+150);
+                setcookie("password", $_SESSION["password"], time()+150);
+            }
+        } else if ($_REQUEST["user"] != $usuario && $_REQUEST["password"] != $password) {
+            $_SESSION["error"] = "Usuario y contraseña inválidos";
+            header('Location: error.php');
         } elseif ($_REQUEST["user"] != $usuario) {
-        $_SESSION["erroruser"] = "Usuario inválido";
-        header('Location: error.php');
+            $_SESSION["erroruser"] = "Usuario inválido";
+            header('Location: error.php');
          } elseif ($_REQUEST["password"] != $password) {
-        $_SESSION["errorpass"] = "Contraseña inválida";
-        header('Location: error.php');
-        } else {
-    header("Location:login.php");
-}
-}
-
+            $_SESSION["errorpass"] = "Contraseña inválida";
+            header('Location: error.php');
+        } 
+    } else {
+        header("Location:login.php");
+    }
 ?>
 
 

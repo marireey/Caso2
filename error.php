@@ -54,6 +54,8 @@
             echo "<h2> &#10062 " . $_SESSION["erroruser"] . " &#10062" . " <br>Vuelva a intentarlo</h2>";
         } elseif (isset($_SESSION["errorpass"])) {
             echo "<h2> &#10062 "  . $_SESSION["errorpass"] . " &#10062" . "<br>Vuelva a intentarlo</h2>";
+        } else {
+            header("Location: login.php");
         }
         ?>
 
