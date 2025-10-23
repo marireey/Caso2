@@ -17,11 +17,11 @@
             padding: 4px;
             text-align: center;
             letter-spacing:0.6px;
-            margin-left:32px;
+            margin-left:40px;
         }
 
         #us{
-            margin:10px;
+            margin:11px;
             background: #ffffffff;
             color: #090c10ff;
             font-size: 13px;
@@ -36,7 +36,7 @@
 
         #pass {
             font-size: 13px;
-            margin:15px;
+            margin:13px;
             background: #fff ;
             color: #090c10ff ;
         }
